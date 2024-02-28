@@ -3,10 +3,10 @@
 #SBATCH --mail-user=pdumandan@ufl.edu
 #SBATCH --ntasks=1
 #SBATCH --mem=16gb
-#SBATCH --time= 02:30:00
+#SBATCH --time= 05:30:00
 #SBATCH --partition=hpg2-compute
-#SBATCH --output=/blue/ewhite/pdumandan/mvgam_dryrun_output.log
-#SBATCH --error=/blue/ewhite/pdumandan/mvgam_dryrun_error.log
+#SBATCH --output=/blue/ewhite/pdumandan/portal/mvgam_dryrun_output.log
+#SBATCH --error=/blue/ewhite/pdumandan/portal/mvgam_dryrun_error.log
 
 echo "INFO [$(date "+%Y-%m-%d %H:%M:%S")] Loading required modules"
 source /etc/profile.d/modules.sh
