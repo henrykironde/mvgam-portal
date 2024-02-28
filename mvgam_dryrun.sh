@@ -13,7 +13,6 @@ source /etc/profile.d/modules.sh
 
 module load git R
 
-
 echo "INFO [$(date "+%Y-%m-%d %H:%M:%S")] Updating mvgamportal repository"
 rm -rf mvgamportal
 git clone https://github.com/weecology/mvgamportal.git
