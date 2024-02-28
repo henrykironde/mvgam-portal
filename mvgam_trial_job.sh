@@ -1,13 +1,22 @@
 #!/bin/bash
+#SBATCH --job-name=mvgam_dryrun
+#SBATCH --mail-user=pdumandan@ufl.edu
+#SBATCH --ntasks=1
+#SBATCH --mem=16gb
+#SBATCH --time= 02:30:00
+#SBATCH --partition=hpg2-compute
+#SBATCH --output=/blue/ewhite/pdumandan/mvgam_dryrun_output.log
+#SBATCH --error=/blue/ewhite/pdumandan/mvgam_dryrun_error.log
 
-#SBATCH --job-name= mvgam-trial-job
-#SBATCH --output= output.log
-#SBATCH --error= error.log
-#SBATCH --partition= 
-#SBATCH --nodes= 1
-#SBATCH --ntasks-per-node= 1
-#SBATCH --time= 00:30:00
+echo "INFO [$(date "+%Y-%m-%d %H:%M:%S")] Loading required modules"
+source /etc/profile.d/modules.sh
 
-module load R
+module load git R
 
-Rscript dm-sample.R
+
+echo "INFO [$(date "+%Y-%m-%d %H:%M:%S")] Updating mvgamportal repository"
+rm -rf mvgamportal
+git clone https://github.com/weecology/mvgamportal.git
+cd mvgamportal
+
+Rscript R/dm-sample.R
